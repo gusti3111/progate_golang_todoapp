@@ -207,20 +207,20 @@ func (controller *TodoController) Done(w http.ResponseWriter, r *http.Request, p
 
 }
 
-func (controller *TodoController) Delete(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
-	// koneksikan ke database
+// func (controller *TodoController) Delete(w http.ResponseWriter, r *http.Request, params httprouter.Params) {
+// 	// koneksikan ke database
 
-	db, err := gorm.Open(sqlite.Open("data,db"), &gorm.Config{})
-	if err != nil {
-		panic(err.Error())
+// 	db, err := gorm.Open(sqlite.Open("data,db"), &gorm.Config{})
+// 	if err != nil {
+// 		panic(err.Error())
 
-	}
+// 	}
 
-	var todos models.Todo
-	// perintah Delete
+// 	var todos models.Todo
+// 	// perintah Delete
 
-	db.Unscoped().Delete(&todos, params.ByName("id"))
+// 	db.Unscoped().Delete(&todos, params.ByName("id"))
 
-	http.Redirect(w, r, "/", http.StatusFound)
+// 	http.Redirect(w, r, "/", http.StatusFound)
 
-}
+// }

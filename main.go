@@ -38,7 +38,7 @@ func main() {
 	router.GET("/edit/:id", todoController.Edit)
 	router.POST("/update/:id", todoController.Update)
 	router.POST("/done/:id", todoController.Done)
-	router.POST("/delete/:id", todoController.Delete)
+	// router.POST("/delete/:id", todoController.Delete)
 
 	log.Println("server started at localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", router))
