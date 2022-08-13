@@ -1,5 +1,7 @@
 module progate_crud_golang
 
+// +heroku goVersion go1.11
+
 go 1.18
 
 require (
