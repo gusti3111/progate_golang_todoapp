@@ -70,6 +70,7 @@ func (controller *TodoController) Create(w http.ResponseWriter, r *http.Request,
 		todo := models.Todo{
 			Name:    r.FormValue("name"),
 			Content: r.FormValue("content"),
+			NIK:     r.FormValue("nik"),
 			Date:    r.FormValue("date"),
 		}
 		// create db
@@ -122,6 +123,7 @@ func (controller *TodoController) Edit(w http.ResponseWriter, r *http.Request, p
 		db.Where("ID = ?", noteId).First(&note)
 		note.Content = r.FormValue("content")
 		note.Date = r.FormValue("deadline")
+		note.NIK = r.FormValue("nik")
 		note.Name = r.FormValue("name")
 
 		db.Save(&note)
@@ -175,6 +177,7 @@ func (controller *TodoController) Update(w http.ResponseWriter, r *http.Request,
 	db.Where("ID = ?", noteId).First(&note)
 	note.Name = r.FormValue("name")
 	note.Date = r.FormValue("date")
+	note.NIK = r.FormValue("nik")
 	note.Content = r.FormValue("content")
 
 	db.Save(&note)
@@ -217,7 +220,7 @@ func (controller *TodoController) Delete(w http.ResponseWriter, r *http.Request,
 	// perintah Delete
 
 	db.Unscoped().Delete(&todos, params.ByName("id"))
-	
+
 	http.Redirect(w, r, "/", http.StatusFound)
 
 }

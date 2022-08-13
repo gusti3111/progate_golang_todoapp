@@ -2,7 +2,7 @@ module progate_crud_golang
 
 // +heroku goVersion go1.11
 
-go 1.18
+go 1.12
 
 require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
